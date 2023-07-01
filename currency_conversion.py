@@ -6,21 +6,14 @@ from collections import deque
 
 time1 = time.time()
 
-def convert_currency(arr,start,end,testing=False):
+def convert_currency(arr,start,end):
     """Array of from->to,rate lists and a desired start
     and end currency.
-
     """
-
-    loc = start
     q = deque([(start,1)])
 
     while q:
-        if testing:
-            print("q:",q)
         loc,num = q.popleft()
-        if testing:
-            print("loc,num:",loc,num)
         if loc == end:
             return round(num,2)
         for a in arr:
